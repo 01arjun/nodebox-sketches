@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="a8e43cb4-6ba8-4af9-b8bc-1f3e9a6cf676">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="ellipse2">
+        <node name="ellipse2" position="2.00,4.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="50.0"/>
+            <port name="height" type="float" value="50.0"/>
+        </node>
+        <node name="random_numbers2" position="6.00,2.00" prototype="math.random_numbers">
+            <port name="amount" type="int" value="30"/>
+            <port name="start" type="float" value="1.0"/>
+            <port name="end" type="float" value="30.0"/>
+        </node>
+        <node name="scatter2" position="2.00,2.00" prototype="corevector.scatter">
+            <port name="amount" type="int" value="100"/>
+        </node>
+        <node name="textpath2" position="2.00,0.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="Arjun"/>
+            <port name="font_size" type="float" value="255.0"/>
+        </node>
+        <conn input="scatter2.shape" output="textpath2"/>
+        <conn input="ellipse2.position" output="scatter2"/>
+        <conn input="ellipse2.width" output="random_numbers2"/>
+        <conn input="ellipse2.height" output="random_numbers2"/>
+    </node>
+</ndbx>
