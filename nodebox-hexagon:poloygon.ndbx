@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="26432238-e26a-4479-ae77-39e81f1d3cc0">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="polygon1">
+        <node name="copy1" position="12.00,5.00" prototype="corevector.copy">
+            <port name="copies" type="int" value="4"/>
+            <port name="translate" type="point" value="-23.00,39.00"/>
+            <port name="rotate" type="float" value="95.0"/>
+            <port name="scale" type="point" value="240.00,5.00"/>
+        </node>
+        <node name="grid1" position="2.00,2.00" prototype="corevector.grid">
+            <port name="columns" type="int" value="9"/>
+            <port name="rows" type="int" value="9"/>
+            <port name="width" type="float" value="548.0"/>
+            <port name="height" type="float" value="596.0"/>
+        </node>
+        <node name="polygon1" position="2.00,5.00" prototype="corevector.polygon">
+            <port name="radius" type="float" value="33.0"/>
+            <port name="sides" type="int" value="7"/>
+        </node>
+        <node name="rect1" position="11.00,6.00" prototype="corevector.rect">
+            <port name="width" type="float" value="50.0"/>
+            <port name="height" type="float" value="50.0"/>
+            <port name="roundness" type="point" value="10.00,10.00"/>
+        </node>
+        <conn input="polygon1.position" output="grid1"/>
+    </node>
+</ndbx>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="835c6d42-09e6-4128-ba87-c1bcf1137317">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="delete1">
+        <node name="copy1" position="1.00,5.00" prototype="corevector.copy">
+            <port name="copies" type="int" value="2"/>
+            <port name="rotate" type="float" value="45.0"/>
+        </node>
+        <node name="delete1" position="1.00,7.00" prototype="corevector.delete">
+            <port name="scope" type="string" value="paths"/>
+            <port name="operation" type="string" value="non-selected"/>
+        </node>
+        <node name="ellipse2" position="1.00,1.00" prototype="corevector.ellipse">
+            <port name="position" type="point" value="5.00,5.00"/>
+            <port name="width" type="float" value="10.0"/>
+            <port name="height" type="float" value="10.0"/>
+        </node>
+        <node name="ellipse3" position="4.00,5.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="400.0"/>
+            <port name="height" type="float" value="400.0"/>
+        </node>
+        <node name="frame1" position="4.00,3.00" prototype="core.frame"/>
+        <node name="grid1" position="4.00,1.00" prototype="corevector.grid">
+            <port name="columns" type="int" value="30"/>
+            <port name="rows" type="int" value="30"/>
+            <port name="width" type="float" value="400.0"/>
+            <port name="height" type="float" value="400.0"/>
+        </node>
+        <node name="translate1" position="1.00,3.00" prototype="corevector.translate"/>
+        <conn input="copy1.rotate" output="frame1"/>
+        <conn input="copy1.shape" output="translate1"/>
+        <conn input="delete1.shape" output="copy1"/>
+        <conn input="delete1.bounding" output="ellipse3"/>
+        <conn input="translate1.translate" output="grid1"/>
+        <conn input="translate1.shape" output="ellipse2"/>
+    </node>
+</ndbx>

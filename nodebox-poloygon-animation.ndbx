@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="2bc2cf12-517b-408a-b970-269de1c12d7e">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="copy1">
+        <node name="combine1" position="3.00,5.00" prototype="list.combine"/>
+        <node name="convert_range1" position="7.00,5.00" prototype="math.convert_range">
+            <port name="source_start" type="float" value="1.0"/>
+            <port name="source_end" type="float" value="360.0"/>
+            <port name="target_start" type="float" value="1.0"/>
+            <port name="target_end" type="float" value="360.0"/>
+        </node>
+        <node name="copy1" position="3.00,7.00" prototype="corevector.copy">
+            <port name="copies" type="int" value="10"/>
+            <port name="rotate" type="float" value="1.0"/>
+        </node>
+        <node name="ellipse1" position="6.00,3.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="10.0"/>
+            <port name="height" type="float" value="10.0"/>
+        </node>
+        <node name="frame1" position="9.00,3.00" prototype="core.frame"/>
+        <node name="grid1" position="3.00,1.00" prototype="corevector.grid"/>
+        <node name="rect1" position="0.00,3.00" prototype="corevector.rect">
+            <port name="width" type="float" value="1.0"/>
+            <port name="height" type="float" value="35.0"/>
+        </node>
+        <node name="rect2" position="3.00,3.00" prototype="corevector.rect">
+            <port name="width" type="float" value="35.0"/>
+            <port name="height" type="float" value="1.0"/>
+        </node>
+        <conn input="combine1.list1" output="rect1"/>
+        <conn input="ellipse1.position" output="grid1"/>
+        <conn input="rect1.position" output="grid1"/>
+        <conn input="rect2.position" output="grid1"/>
+        <conn input="combine1.list2" output="rect2"/>
+        <conn input="combine1.list3" output="ellipse1"/>
+        <conn input="copy1.shape" output="combine1"/>
+        <conn input="convert_range1.value" output="frame1"/>
+        <conn input="copy1.rotate" output="convert_range1"/>
+    </node>
+</ndbx>
